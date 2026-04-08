@@ -1,11 +1,14 @@
 import { SLIDES } from '../data/slides'
+import { Slide00 } from './slides/Slide00'
 import { Slide01 } from './slides/Slide01'
 import { Slide02 } from './slides/Slide02'
 import { Slide03 } from './slides/Slide03'
 import { Slide04 } from './slides/Slide04'
 import { Slide05 } from './slides/Slide05'
 import { Slide06 } from './slides/Slide06'
+import { SlideAboutMe } from './slides/SlideAboutMe'
 import { SlidePrompts } from './slides/SlidePrompts'
+import { EscapeRoom } from './slides/EscapeRoom'
 
 type SlideViewportProps = {
   slideId: string
@@ -14,6 +17,10 @@ type SlideViewportProps = {
 }
 
 export function SlideViewport({ slideId, title, index }: SlideViewportProps) {
+  if (slideId === 'opening') {
+    return <Slide00 />
+  }
+
   if (slideId === 'basics') {
     return <Slide01 />
   }
@@ -38,17 +45,25 @@ export function SlideViewport({ slideId, title, index }: SlideViewportProps) {
     return <Slide06 />
   }
 
+  if (slideId === 'about-me') {
+    return <SlideAboutMe />
+  }
+
   if (slideId === 'prompts') {
     return <SlidePrompts />
+  }
+
+  if (slideId === 'escape-room') {
+    return <EscapeRoom />
   }
 
   return (
     <div className="animate-slide-fade-in flex min-h-0 flex-1 flex-col">
       <header className="mb-8 shrink-0">
-        <p className="text-xs font-medium uppercase tracking-[0.25em] text-fuchsia-400/80">
+        <p className="text-xs font-medium uppercase tracking-[0.25em] text-slate-400">
           Slide {index + 1} of {SLIDES.length}
         </p>
-        <h2 className="mt-2 bg-gradient-to-r from-cyan-200 via-fuchsia-300 to-pink-300 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl">
+        <h2 className="mt-2 bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-pink-500 bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl">
           {title}
         </h2>
       </header>

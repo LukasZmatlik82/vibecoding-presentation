@@ -5,9 +5,7 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { cn } from '../../lib/cn'
-
-const glassCard =
-  'rounded-2xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-md'
+import { vibeCardClass, vibeIconChipClass, vibeIconTextClass } from '../../lib/vibeCard'
 
 const steps = [
   {
@@ -16,15 +14,13 @@ const steps = [
     title: 'The Strategist',
     badge: 'Powered by Gemini Pro',
     icon: Sparkles,
-    iconClass: 'text-amber-400',
-    iconWrap: 'border-amber-500/40 bg-amber-500/10',
     action:
       'Before writing a single line of code, open Gemini Pro. Treat it as your Senior Business Analyst and Lead Architect.',
     goal: (
       <>
         Have a conversation to define the problem, map out the user journey, and
         decide on the technology stack. Ask Gemini to write the step-by-step{' '}
-        <span className="font-medium text-cyan-200">&ldquo;Master Prompt&rdquo;</span> or
+        <span className="font-medium text-slate-100">&ldquo;Master Prompt&rdquo;</span> or
         blueprint that you will later feed to your coding AI.
       </>
     ),
@@ -36,18 +32,16 @@ const steps = [
     title: 'The Context Engine',
     badge: 'Docs & Rules',
     icon: BookMarked,
-    iconClass: 'text-cyan-400',
-    iconWrap: 'border-cyan-500/40 bg-cyan-500/10',
     action:
       'Move into Cursor IDE. Before generating code, give the AI its boundaries.',
     goal: null,
     practice: (
-      <ul className="mt-2 list-none space-y-2 pl-0 text-sm leading-relaxed text-slate-300">
+      <ul className="mt-2 list-none space-y-2 pl-0 text-sm leading-relaxed text-slate-400">
         <li className="flex gap-2">
-          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
           <span>
             Use a{' '}
-            <code className="rounded bg-slate-900/80 px-1.5 py-0.5 font-mono text-xs text-cyan-200">
+            <code className="rounded bg-slate-900/80 px-1.5 py-0.5 font-mono text-xs text-slate-100">
               .cursorrules
             </code>{' '}
             file to tell the AI exactly how you want things done (e.g., &ldquo;Always
@@ -55,10 +49,10 @@ const steps = [
           </span>
         </li>
         <li className="flex gap-2">
-          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fuchsia-400" />
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
           <span>
             Use Cursor&apos;s{' '}
-            <code className="rounded bg-slate-900/80 px-1.5 py-0.5 font-mono text-xs text-fuchsia-200">
+            <code className="rounded bg-slate-900/80 px-1.5 py-0.5 font-mono text-xs text-slate-100">
               @Docs
             </code>{' '}
             feature to feed it the exact, up-to-date API documentation of the systems
@@ -75,13 +69,11 @@ const steps = [
     title: 'The Builder',
     badge: 'Cursor + Claude',
     icon: Code2,
-    iconClass: 'text-fuchsia-400',
-    iconWrap: 'border-fuchsia-500/40 bg-fuchsia-500/10',
     action:
       'Paste Gemini’s blueprint into Cursor, using Claude (e.g., Claude 3.5 Sonnet) as your execution engine.',
     goal: null,
     practice: (
-      <p className="text-sm leading-relaxed text-slate-300">
+      <p className="text-sm leading-relaxed text-slate-400">
         Build step-by-step. Do not ask for the whole application at once. Ask
         Claude to build the login screen. Stop. Review it. Then ask it to build
         the database connection.
@@ -95,15 +87,13 @@ const steps = [
     title: 'The Iteration Loop',
     badge: 'Run, React, Refine',
     icon: RefreshCw,
-    iconClass: 'text-emerald-400',
-    iconWrap: 'border-emerald-500/40 bg-emerald-500/10',
     action: 'Test the application constantly.',
     goal: null,
     practice: (
-      <p className="text-sm leading-relaxed text-slate-300">
+      <p className="text-sm leading-relaxed text-slate-400">
         When (not if) it breaks, do not try to manually rewrite the code. Copy
         the error message from your terminal, paste it back into Cursor, and ask:{' '}
-        <span className="italic text-emerald-200/95">
+        <span className="italic text-slate-100">
           &ldquo;Explain your reasoning for this error, and then provide a
           fix.&rdquo;
         </span>
@@ -130,7 +120,7 @@ export function Slide05() {
       <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_55%_at_50%_12%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.08),transparent_58%)]" />
 
       <div className="relative z-[1] mb-5 max-w-4xl lg:mb-6">
-        <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.2em] text-cyan-400/90">
+        <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
           The Advanced Workflow — Vibe Coding with Cursor AI
         </p>
         <h2 className="animate-fade-in-delay-2 mt-2 text-2xl font-semibold leading-snug tracking-tight sm:text-3xl lg:text-[1.65rem]">
@@ -143,14 +133,14 @@ export function Slide05() {
 
       <div
         className={cn(
-          glassCard,
-          'animate-fade-in-delay-2 relative z-[1] mb-8 border-cyan-500/25 p-4 sm:p-5',
+          vibeCardClass(0),
+          'animate-fade-in-delay-2 relative z-[1] mb-8 p-4 sm:p-5',
         )}
       >
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-fuchsia-400/90">
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400">
           The Strategy
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-slate-300">
+        <p className="mt-2 text-sm leading-relaxed text-slate-400">
           Do not use one AI for everything. The most successful teams split the
           workflow by the strengths of the models—using one for high-level
           architecture and another for ground-level execution.
@@ -164,7 +154,7 @@ export function Slide05() {
 
         <div className="relative">
           <div
-            className="absolute left-[18px] top-3 bottom-3 w-px bg-gradient-to-b from-amber-500/80 via-fuchsia-500/70 to-emerald-500/60 sm:left-5"
+            className="absolute left-[18px] top-3 bottom-3 w-px bg-white/15 sm:left-5"
             aria-hidden
           />
 
@@ -177,24 +167,24 @@ export function Slide05() {
                   className={cn('relative pl-12 sm:pl-14', stepAnim[i])}
                 >
                   <span
-                    className="absolute left-0 top-1 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-950 bg-gradient-to-br from-cyan-600 to-fuchsia-600 text-xs font-bold text-white shadow-[0_0_18px_-4px_rgba(34,211,238,0.55)] sm:top-0 sm:h-10 sm:w-10 sm:text-sm"
+                    className="absolute left-0 top-1 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-950 bg-slate-700 text-xs font-bold text-slate-100 shadow-[0_0_12px_-4px_rgba(0,0,0,0.5)] sm:top-0 sm:h-10 sm:w-10 sm:text-sm"
                     aria-hidden
                   >
                     {step.n}
                   </span>
-                  <article className={cn(glassCard, 'p-4 sm:p-5')}>
+                  <article className={cn(vibeCardClass(i + 1), 'p-4 sm:p-5')}>
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
                       <div
                         className={cn(
                           'flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border',
-                          step.iconWrap,
+                          vibeIconChipClass(i + 1),
                         )}
                       >
-                        <Icon className={cn('h-5 w-5', step.iconClass)} aria-hidden />
+                        <Icon className={cn('h-5 w-5', vibeIconTextClass(i + 1))} aria-hidden />
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                          <h4 className="text-base font-semibold text-white sm:text-lg">
+                          <h4 className="text-base font-semibold text-slate-100 sm:text-lg">
                             {step.n}. {step.title}
                           </h4>
                           <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
@@ -204,20 +194,20 @@ export function Slide05() {
 
                         <div className="mt-4 space-y-3 border-t border-white/10 pt-4">
                           <div>
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-cyan-400/90">
+                            <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                               The Action
                             </p>
-                            <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                            <p className="mt-1 text-sm leading-relaxed text-slate-400">
                               {step.action}
                             </p>
                           </div>
 
                           {step.variant === 'goal' && step.goal && (
                             <div>
-                              <p className="text-[11px] font-semibold uppercase tracking-wider text-fuchsia-400/90">
+                              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                                 The Goal
                               </p>
-                              <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                              <p className="mt-1 text-sm leading-relaxed text-slate-400">
                                 {step.goal}
                               </p>
                             </div>
@@ -225,7 +215,7 @@ export function Slide05() {
 
                           {step.variant === 'practice' && step.practice && (
                             <div>
-                              <p className="text-[11px] font-semibold uppercase tracking-wider text-fuchsia-400/90">
+                              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                                 The Best Practice
                               </p>
                               {step.practice}
