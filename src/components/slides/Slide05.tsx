@@ -1,0 +1,267 @@
+import {
+  BookMarked,
+  Code2,
+  RefreshCw,
+  Sparkles,
+} from 'lucide-react'
+import { cn } from '../../lib/cn'
+
+type Slide05Props = {
+  slideIndex: number
+}
+
+const glassCard =
+  'rounded-2xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-md'
+
+const steps = [
+  {
+    id: 'strategist',
+    n: 1,
+    title: 'The Strategist',
+    badge: 'Powered by Gemini Pro',
+    icon: Sparkles,
+    iconClass: 'text-amber-400',
+    iconWrap: 'border-amber-500/40 bg-amber-500/10',
+    action:
+      'Before writing a single line of code, open Gemini Pro. Treat it as your Senior Business Analyst and Lead Architect.',
+    goal: (
+      <>
+        Have a conversation to define the problem, map out the user journey, and
+        decide on the technology stack. Ask Gemini to write the step-by-step{' '}
+        <span className="font-medium text-cyan-200">&ldquo;Master Prompt&rdquo;</span> or
+        blueprint that you will later feed to your coding AI.
+      </>
+    ),
+    variant: 'goal' as const,
+  },
+  {
+    id: 'context',
+    n: 2,
+    title: 'The Context Engine',
+    badge: 'Docs & Rules',
+    icon: BookMarked,
+    iconClass: 'text-cyan-400',
+    iconWrap: 'border-cyan-500/40 bg-cyan-500/10',
+    action:
+      'Move into Cursor IDE. Before generating code, give the AI its boundaries.',
+    goal: null,
+    practice: (
+      <ul className="mt-2 list-none space-y-2 pl-0 text-sm leading-relaxed text-slate-300">
+        <li className="flex gap-2">
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
+          <span>
+            Use a{' '}
+            <code className="rounded bg-slate-900/80 px-1.5 py-0.5 font-mono text-xs text-cyan-200">
+              .cursorrules
+            </code>{' '}
+            file to tell the AI exactly how you want things done (e.g., &ldquo;Always
+            write error logs,&rdquo; &ldquo;Never use placeholder code&rdquo;).
+          </span>
+        </li>
+        <li className="flex gap-2">
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fuchsia-400" />
+          <span>
+            Use Cursor&apos;s{' '}
+            <code className="rounded bg-slate-900/80 px-1.5 py-0.5 font-mono text-xs text-fuchsia-200">
+              @Docs
+            </code>{' '}
+            feature to feed it the exact, up-to-date API documentation of the systems
+            you are trying to connect. Do not let the AI guess the API structure.
+          </span>
+        </li>
+      </ul>
+    ),
+    variant: 'practice' as const,
+  },
+  {
+    id: 'builder',
+    n: 3,
+    title: 'The Builder',
+    badge: 'Cursor + Claude',
+    icon: Code2,
+    iconClass: 'text-fuchsia-400',
+    iconWrap: 'border-fuchsia-500/40 bg-fuchsia-500/10',
+    action:
+      'Paste Gemini’s blueprint into Cursor, using Claude (e.g., Claude 3.5 Sonnet) as your execution engine.',
+    goal: null,
+    practice: (
+      <p className="text-sm leading-relaxed text-slate-300">
+        Build step-by-step. Do not ask for the whole application at once. Ask
+        Claude to build the login screen. Stop. Review it. Then ask it to build
+        the database connection.
+      </p>
+    ),
+    variant: 'practice' as const,
+  },
+  {
+    id: 'iteration',
+    n: 4,
+    title: 'The Iteration Loop',
+    badge: 'Run, React, Refine',
+    icon: RefreshCw,
+    iconClass: 'text-emerald-400',
+    iconWrap: 'border-emerald-500/40 bg-emerald-500/10',
+    action: 'Test the application constantly.',
+    goal: null,
+    practice: (
+      <p className="text-sm leading-relaxed text-slate-300">
+        When (not if) it breaks, do not try to manually rewrite the code. Copy
+        the error message from your terminal, paste it back into Cursor, and ask:{' '}
+        <span className="italic text-emerald-200/95">
+          &ldquo;Explain your reasoning for this error, and then provide a
+          fix.&rdquo;
+        </span>
+      </p>
+    ),
+    variant: 'practice' as const,
+  },
+]
+
+const stepAnim = [
+  'animate-fade-in-delay-1',
+  'animate-fade-in-delay-2',
+  'animate-fade-in-delay-3',
+  'animate-fade-in-delay-4',
+] as const
+
+export function Slide05({ slideIndex }: Slide05Props) {
+  const badge = String(slideIndex + 1).padStart(2, '0')
+
+  return (
+    <div
+      className={cn(
+        'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col pb-14',
+        'bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)]',
+        'bg-[length:40px_40px]',
+      )}
+    >
+      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_55%_at_50%_12%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.08),transparent_58%)]" />
+
+      <header className="relative z-[1] mb-5 flex shrink-0 items-start justify-between gap-4 lg:mb-6">
+        <div className="animate-fade-in flex h-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 px-4 text-xs font-semibold uppercase tracking-widest text-slate-400 backdrop-blur-md">
+          Logo
+        </div>
+      </header>
+
+      <div className="relative z-[1] mb-5 max-w-4xl lg:mb-6">
+        <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.2em] text-cyan-400/90">
+          The Advanced Workflow — Vibe Coding with Cursor AI
+        </p>
+        <h2 className="animate-fade-in-delay-2 mt-2 text-2xl font-semibold leading-snug tracking-tight sm:text-3xl lg:text-[1.65rem]">
+          <span className="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-pink-500 bg-clip-text text-transparent">
+            A proven, multi-model approach for building production-ready
+            applications.
+          </span>
+        </h2>
+      </div>
+
+      <div
+        className={cn(
+          glassCard,
+          'animate-fade-in-delay-2 relative z-[1] mb-8 border-cyan-500/25 p-4 sm:p-5',
+        )}
+      >
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-fuchsia-400/90">
+          The Strategy
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-slate-300">
+          Do not use one AI for everything. The most successful teams split the
+          workflow by the strengths of the models—using one for high-level
+          architecture and another for ground-level execution.
+        </p>
+      </div>
+
+      <div className="relative z-[1] min-h-0 flex-1">
+        <h3 className="animate-fade-in-delay-3 mb-6 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-lg font-semibold text-transparent sm:text-xl">
+          The 4-Step Professional Pipeline
+        </h3>
+
+        <div className="relative">
+          <div
+            className="absolute left-[18px] top-3 bottom-3 w-px bg-gradient-to-b from-amber-500/80 via-fuchsia-500/70 to-emerald-500/60 sm:left-5"
+            aria-hidden
+          />
+
+          <ol className="relative flex list-none flex-col gap-6 sm:gap-7">
+            {steps.map((step, i) => {
+              const Icon = step.icon
+              return (
+                <li
+                  key={step.id}
+                  className={cn('relative pl-12 sm:pl-14', stepAnim[i])}
+                >
+                  <span
+                    className="absolute left-0 top-1 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-950 bg-gradient-to-br from-cyan-600 to-fuchsia-600 text-xs font-bold text-white shadow-[0_0_18px_-4px_rgba(34,211,238,0.55)] sm:top-0 sm:h-10 sm:w-10 sm:text-sm"
+                    aria-hidden
+                  >
+                    {step.n}
+                  </span>
+                  <article className={cn(glassCard, 'p-4 sm:p-5')}>
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
+                      <div
+                        className={cn(
+                          'flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border',
+                          step.iconWrap,
+                        )}
+                      >
+                        <Icon className={cn('h-5 w-5', step.iconClass)} aria-hidden />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                          <h4 className="text-base font-semibold text-white sm:text-lg">
+                            {step.n}. {step.title}
+                          </h4>
+                          <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+                            {step.badge}
+                          </span>
+                        </div>
+
+                        <div className="mt-4 space-y-3 border-t border-white/10 pt-4">
+                          <div>
+                            <p className="text-[11px] font-semibold uppercase tracking-wider text-cyan-400/90">
+                              The Action
+                            </p>
+                            <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                              {step.action}
+                            </p>
+                          </div>
+
+                          {step.variant === 'goal' && step.goal && (
+                            <div>
+                              <p className="text-[11px] font-semibold uppercase tracking-wider text-fuchsia-400/90">
+                                The Goal
+                              </p>
+                              <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                                {step.goal}
+                              </p>
+                            </div>
+                          )}
+
+                          {step.variant === 'practice' && step.practice && (
+                            <div>
+                              <p className="text-[11px] font-semibold uppercase tracking-wider text-fuchsia-400/90">
+                                The Best Practice
+                              </p>
+                              {step.practice}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              )
+            })}
+          </ol>
+        </div>
+      </div>
+
+      <div
+        className="pointer-events-none absolute bottom-2 right-0 z-[2] flex items-center justify-center rounded-lg border border-fuchsia-500/60 bg-fuchsia-950/70 px-3 py-1.5 text-lg font-bold tabular-nums text-fuchsia-200 shadow-[0_0_24px_rgba(217,70,239,0.45)] backdrop-blur-sm sm:bottom-4 sm:text-2xl"
+        aria-label={`Slide ${slideIndex + 1}`}
+      >
+        {badge}
+      </div>
+    </div>
+  )
+}
