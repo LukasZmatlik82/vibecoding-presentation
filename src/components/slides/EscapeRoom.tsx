@@ -85,9 +85,10 @@ export function EscapeRoom() {
 
     const canvas = canvasRef.current
     if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const ctxMaybe = canvas.getContext('2d')
+    if (!ctxMaybe) return
 
+    return (function runGame(ctx: CanvasRenderingContext2D) {
     // Reset state
     const g = gs.current
     g.player = { x: CANVAS_W / 2 - 30, y: CANVAS_H - 60, w: 60, h: 40, speed: 5 }
@@ -361,6 +362,7 @@ export function EscapeRoom() {
       window.removeEventListener('keydown', onKeyDown)
       window.removeEventListener('keyup', onKeyUp)
     }
+    })(ctxMaybe)
   }, [gameKey])
 
   function handleStart() {
