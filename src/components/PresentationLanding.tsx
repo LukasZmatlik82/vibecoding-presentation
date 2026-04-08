@@ -20,7 +20,9 @@ export function PresentationLanding({ onEnter }: PresentationLandingProps) {
           transition={{ duration: 0.45 }}
           className="text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl sm:leading-[1.1] lg:text-6xl"
         >
-          Vibecoding
+          Vibe Coding
+          <br />
+          and Autonomous Web Agents
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
