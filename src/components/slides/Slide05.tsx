@@ -6,10 +6,6 @@ import {
 } from 'lucide-react'
 import { cn } from '../../lib/cn'
 
-type Slide05Props = {
-  slideIndex: number
-}
-
 const glassCard =
   'rounded-2xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-md'
 
@@ -124,24 +120,14 @@ const stepAnim = [
   'animate-fade-in-delay-4',
 ] as const
 
-export function Slide05({ slideIndex }: Slide05Props) {
-  const badge = String(slideIndex + 1).padStart(2, '0')
-
+export function Slide05() {
   return (
     <div
       className={cn(
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col pb-14',
-        'bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)]',
-        'bg-[length:40px_40px]',
       )}
     >
       <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_55%_at_50%_12%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.08),transparent_58%)]" />
-
-      <header className="relative z-[1] mb-5 flex shrink-0 items-start justify-between gap-4 lg:mb-6">
-        <div className="animate-fade-in flex h-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 px-4 text-xs font-semibold uppercase tracking-widest text-slate-400 backdrop-blur-md">
-          Logo
-        </div>
-      </header>
 
       <div className="relative z-[1] mb-5 max-w-4xl lg:mb-6">
         <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.2em] text-cyan-400/90">
@@ -254,13 +240,6 @@ export function Slide05({ slideIndex }: Slide05Props) {
             })}
           </ol>
         </div>
-      </div>
-
-      <div
-        className="pointer-events-none absolute bottom-2 right-0 z-[2] flex items-center justify-center rounded-lg border border-fuchsia-500/60 bg-fuchsia-950/70 px-3 py-1.5 text-lg font-bold tabular-nums text-fuchsia-200 shadow-[0_0_24px_rgba(217,70,239,0.45)] backdrop-blur-sm sm:bottom-4 sm:text-2xl"
-        aria-label={`Slide ${slideIndex + 1}`}
-      >
-        {badge}
       </div>
     </div>
   )

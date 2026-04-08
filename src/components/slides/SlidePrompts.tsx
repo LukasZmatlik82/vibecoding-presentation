@@ -41,8 +41,6 @@ export function SlidePrompts() {
     <div
       className={cn(
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col',
-        'bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)]',
-        'bg-[length:40px_40px]',
       )}
     >
       <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-30 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(217,70,239,0.08),transparent_55%)]" />

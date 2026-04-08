@@ -2,29 +2,14 @@ import { MessageSquare, Terminal } from 'lucide-react'
 import heroImage from '../../assets/slide01-hero.png'
 import { cn } from '../../lib/cn'
 
-type Slide01Props = {
-  /** Zero-based index in deck (used for corner badge). */
-  slideIndex: number
-}
-
-export function Slide01({ slideIndex }: Slide01Props) {
-  const n = String(slideIndex + 1).padStart(2, '0')
-
+export function Slide01() {
   return (
     <div
       className={cn(
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col',
-        'bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)]',
-        'bg-[length:40px_40px]',
       )}
     >
       <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-40 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_30%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.08),transparent_55%)]" />
-
-      <header className="relative z-[1] mb-6 flex shrink-0 items-start justify-between gap-4">
-        <div className="animate-fade-in flex h-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 px-4 text-xs font-semibold uppercase tracking-widest text-slate-400 backdrop-blur-md">
-          Logo
-        </div>
-      </header>
 
       <div className="relative z-[1] mx-auto mb-8 max-w-4xl text-center">
         <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.3em] text-cyan-400/90">
@@ -50,37 +35,44 @@ export function Slide01({ slideIndex }: Slide01Props) {
         </span>
       </p>
 
-      <div className="relative z-[1] grid min-h-0 flex-1 grid-cols-1 items-stretch gap-5 lg:grid-cols-12 lg:gap-6">
+      <div
+        className={cn(
+          'relative z-[1] mx-auto grid min-h-0 w-full max-w-6xl flex-1 grid-cols-1 gap-5',
+          'lg:grid-cols-3 lg:grid-rows-1 lg:items-stretch lg:gap-6 lg:h-[min(52vh,520px)] lg:min-h-0',
+        )}
+      >
         <article
           className={cn(
-            'animate-fade-in-delay-1 flex flex-col rounded-2xl border border-white/10 bg-white/5 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-md',
-            'lg:col-span-4',
+            'animate-fade-in-delay-1 flex min-h-[220px] w-full flex-col rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-md sm:p-5',
+            'lg:min-h-0 lg:h-full lg:justify-between lg:overflow-y-auto',
           )}
         >
-          <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-pink-500/40 bg-pink-500/10">
-            <Terminal className="h-5 w-5 text-pink-400" aria-hidden />
+          <div>
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg border border-pink-500/40 bg-pink-500/10 sm:mb-4 sm:h-11 sm:w-11">
+              <Terminal className="h-5 w-5 text-pink-400" aria-hidden />
+            </div>
+            <p className="font-mono text-2xl font-bold tracking-tight text-pink-400 sm:text-3xl lg:text-[1.65rem]">
+              SYNTAX
+            </p>
+            <h3 className="mt-1.5 text-sm font-semibold text-white sm:mt-2 sm:text-base">
+              The Old Way (Syntax-Driven)
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-slate-300 sm:mt-3">
+              &ldquo;What exact formula or code do I need to type to make this
+              system move data from A to B?&rdquo;
+            </p>
           </div>
-          <p className="font-mono text-3xl font-bold tracking-tight text-pink-400 sm:text-4xl">
-            SYNTAX
-          </p>
-          <h3 className="mt-2 text-base font-semibold text-white">
-            The Old Way (Syntax-Driven)
-          </h3>
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-300">
-            &ldquo;What exact formula or code do I need to type to make this
-            system move data from A to B?&rdquo;
-          </p>
           <p className="mt-3 text-xs text-slate-500">
             (Requires deep technical training).
           </p>
         </article>
 
-        <div className="animate-fade-in-delay-2 flex min-h-[220px] items-center justify-center lg:col-span-4 lg:min-h-0">
-          <div className="relative w-full overflow-hidden rounded-3xl border border-cyan-500/40 shadow-[0_0_40px_-8px_rgba(34,211,238,0.35)]">
+        <div className="animate-fade-in-delay-2 flex min-h-[220px] w-full flex-col lg:min-h-0 lg:h-full">
+          <div className="relative min-h-0 w-full flex-1 overflow-hidden rounded-3xl border border-cyan-500/40 shadow-[0_0_40px_-8px_rgba(34,211,238,0.35)]">
             <img
               src={heroImage}
               alt="Futuristic portrait with neon lighting representing human–AI collaboration"
-              className="aspect-[4/5] w-full object-cover object-center sm:aspect-[3/4] lg:aspect-[4/5] lg:max-h-[min(52vh,520px)]"
+              className="h-full min-h-[200px] w-full object-cover object-center lg:min-h-0"
             />
             <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
           </div>
@@ -88,25 +80,27 @@ export function Slide01({ slideIndex }: Slide01Props) {
 
         <article
           className={cn(
-            'animate-fade-in-delay-3 flex flex-col rounded-2xl border border-cyan-500/50 p-5 text-white shadow-[0_0_32px_-10px_rgba(217,70,239,0.45)] backdrop-blur-md',
+            'animate-fade-in-delay-3 flex min-h-[220px] w-full flex-col rounded-2xl border border-cyan-500/50 p-4 text-white shadow-[0_0_32px_-10px_rgba(217,70,239,0.45)] backdrop-blur-md sm:p-5',
             'bg-gradient-to-b from-slate-950 via-indigo-950/90 to-fuchsia-700/95',
-            'lg:col-span-4',
+            'lg:min-h-0 lg:h-full lg:justify-between lg:overflow-y-auto',
           )}
         >
-          <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-cyan-400/50 bg-white/10">
-            <MessageSquare className="h-5 w-5 text-cyan-300" aria-hidden />
+          <div>
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-400/50 bg-white/10 sm:mb-4 sm:h-11 sm:w-11">
+              <MessageSquare className="h-5 w-5 text-cyan-300" aria-hidden />
+            </div>
+            <p className="font-mono text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-[1.65rem]">
+              INTENT
+            </p>
+            <h3 className="mt-1.5 text-sm font-semibold sm:mt-2 sm:text-base">
+              The New Way (Intent-Driven)
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/90 sm:mt-3">
+              &ldquo;Here is the business rule. When an invoice arrives, extract
+              the total, check it against the PO in the ERP, and flag it if
+              it&apos;s over $10k.&rdquo;
+            </p>
           </div>
-          <p className="font-mono text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            INTENT
-          </p>
-          <h3 className="mt-2 text-base font-semibold">
-            The New Way (Intent-Driven)
-          </h3>
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-white/90">
-            &ldquo;Here is the business rule. When an invoice arrives, extract
-            the total, check it against the PO in the ERP, and flag it if
-            it&apos;s over $10k.&rdquo;
-          </p>
           <p className="mt-3 text-xs text-white/65">
             (Requires clear communication and process knowledge).
           </p>
@@ -124,13 +118,6 @@ export function Slide01({ slideIndex }: Slide01Props) {
           &ldquo;how.&rdquo;
         </p>
       </footer>
-
-      <div
-        className="pointer-events-none absolute bottom-2 right-0 z-[2] flex items-center justify-center rounded-lg border border-fuchsia-500/60 bg-fuchsia-950/70 px-3 py-1.5 text-lg font-bold tabular-nums text-fuchsia-200 shadow-[0_0_24px_rgba(217,70,239,0.45)] backdrop-blur-sm sm:bottom-4 sm:text-2xl"
-        aria-label={`Slide ${slideIndex + 1}`}
-      >
-        {n}
-      </div>
     </div>
   )
 }

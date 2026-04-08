@@ -5,7 +5,6 @@ import { Slide03 } from './slides/Slide03'
 import { Slide04 } from './slides/Slide04'
 import { Slide05 } from './slides/Slide05'
 import { Slide06 } from './slides/Slide06'
-import { LiveFeedback } from './slides/LiveFeedback'
 import { SlidePrompts } from './slides/SlidePrompts'
 
 type SlideViewportProps = {
@@ -16,35 +15,31 @@ type SlideViewportProps = {
 
 export function SlideViewport({ slideId, title, index }: SlideViewportProps) {
   if (slideId === 'basics') {
-    return <Slide01 slideIndex={index} />
+    return <Slide01 />
   }
 
   if (slideId === 'ecosystem') {
-    return <Slide02 slideIndex={index} />
+    return <Slide02 />
   }
 
   if (slideId === 'workflow') {
-    return <Slide03 slideIndex={index} />
+    return <Slide03 />
   }
 
   if (slideId === 'security') {
-    return <Slide04 slideIndex={index} />
+    return <Slide04 />
   }
 
   if (slideId === 'use-cases') {
-    return <Slide05 slideIndex={index} />
+    return <Slide05 />
   }
 
   if (slideId === 'industry-reality') {
-    return <Slide06 slideIndex={index} />
+    return <Slide06 />
   }
 
   if (slideId === 'prompts') {
     return <SlidePrompts />
-  }
-
-  if (slideId === 'live-feedback') {
-    return <LiveFeedback />
   }
 
   return (

@@ -6,33 +6,64 @@ import {
   Rocket,
   Zap,
 } from 'lucide-react'
+import { useCountUp } from '../../hooks/useCountUp'
 import { cn } from '../../lib/cn'
-
-type Slide06Props = {
-  slideIndex: number
-}
 
 const glass =
   'rounded-2xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-md'
 
-export function Slide06({ slideIndex }: Slide06Props) {
-  const n = String(slideIndex + 1).padStart(2, '0')
+function CountPercent({
+  end,
+  className,
+  delayMs = 0,
+  durationMs = 1200,
+}: {
+  end: number
+  className?: string
+  delayMs?: number
+  durationMs?: number
+}) {
+  const v = useCountUp(end, { delayMs, durationMs })
+  return (
+    <span className={className} aria-label={`${end} percent`}>
+      {v}%
+    </span>
+  )
+}
 
+function CountRange({
+  a,
+  b,
+  className,
+  delayMs = 0,
+  durationMs = 1200,
+}: {
+  a: number
+  b: number
+  className?: string
+  delayMs?: number
+  durationMs?: number
+}) {
+  const v1 = useCountUp(a, { delayMs, durationMs })
+  const v2 = useCountUp(b, { delayMs, durationMs })
+  return (
+    <span
+      className={className}
+      aria-label={`${a} to ${b} percent range`}
+    >
+      {v1}%–{v2}%
+    </span>
+  )
+}
+
+export function Slide06() {
   return (
     <div
       className={cn(
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col',
-        'bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)]',
-        'bg-[length:40px_40px]',
       )}
     >
       <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_65%_at_40%_0%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.07),transparent_60%)]" />
-
-      <header className="relative z-[1] mb-4 flex shrink-0 items-start justify-between gap-4 lg:mb-5">
-        <div className="animate-fade-in flex h-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 px-4 text-xs font-semibold uppercase tracking-widest text-slate-400 backdrop-blur-md">
-          Logo
-        </div>
-      </header>
 
       <div className="relative z-[1] mb-5 max-w-5xl lg:mb-6">
         <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.28em] text-fuchsia-400/90">
@@ -64,7 +95,7 @@ export function Slide06({ slideIndex }: Slide06Props) {
               The Adoption Explosion
             </div>
             <p className="mt-4 font-mono text-5xl font-bold tabular-nums tracking-tight text-white drop-shadow-[0_0_28px_rgba(34,211,238,0.35)] sm:text-6xl lg:text-[3.25rem]">
-              92%
+              <CountPercent end={92} durationMs={1600} />
             </p>
             <p className="mt-2 text-sm font-medium text-cyan-200/90">
               Daily usage
@@ -119,7 +150,7 @@ export function Slide06({ slideIndex }: Slide06Props) {
           <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
             <div className="rounded-xl border border-white/10 bg-slate-950/40 p-4">
               <p className="font-mono text-3xl font-bold tabular-nums text-white sm:text-4xl">
-                41%–46%
+                <CountRange a={41} b={46} delayMs={100} durationMs={1400} />
               </p>
               <p className="mt-2 text-xs font-medium uppercase tracking-wide text-slate-500">
                 Of global code (new)
@@ -134,7 +165,7 @@ export function Slide06({ slideIndex }: Slide06Props) {
                 AI-first companies
               </p>
               <p className="mt-2 font-mono text-2xl font-bold tabular-nums text-white sm:text-3xl">
-                70%–90%
+                <CountRange a={70} b={90} delayMs={180} durationMs={1400} />
               </p>
               <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 At companies like Anthropic and Google, AI-generated share of
@@ -149,7 +180,7 @@ export function Slide06({ slideIndex }: Slide06Props) {
                 </span>
               </div>
               <p className="mt-3 font-mono text-3xl font-bold tabular-nums text-pink-300 sm:text-4xl">
-                21%
+                <CountPercent end={21} delayMs={260} durationMs={1400} />
               </p>
               <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 Of Y Combinator&apos;s Winter 2026 cohort reported codebases over{' '}
@@ -171,7 +202,7 @@ export function Slide06({ slideIndex }: Slide06Props) {
             The ROI for Shared Services
           </div>
           <p className="mt-4 font-mono text-4xl font-bold tabular-nums text-cyan-300 sm:text-5xl">
-            55%
+            <CountPercent end={55} delayMs={340} durationMs={1400} />
           </p>
           <p className="mt-2 text-sm font-medium text-white">
             Faster task completion
@@ -195,7 +226,7 @@ export function Slide06({ slideIndex }: Slide06Props) {
             The Death of the Backlog
           </div>
           <p className="mt-4 font-mono text-4xl font-bold tabular-nums text-fuchsia-200 sm:text-5xl">
-            60%
+            <CountPercent end={60} delayMs={420} durationMs={1400} />
           </p>
           <p className="mt-2 text-sm font-medium text-white">
             Reduction in development time
@@ -209,13 +240,6 @@ export function Slide06({ slideIndex }: Slide06Props) {
             when switching to AI-assisted development.
           </p>
         </article>
-      </div>
-
-      <div
-        className="pointer-events-none absolute bottom-2 right-0 z-[2] mt-4 flex items-center justify-center rounded-lg border border-fuchsia-500/60 bg-fuchsia-950/70 px-3 py-1.5 text-lg font-bold tabular-nums text-fuchsia-200 shadow-[0_0_24px_rgba(217,70,239,0.45)] backdrop-blur-sm sm:bottom-4 sm:text-2xl lg:mt-0"
-        aria-label={`Slide ${slideIndex + 1}`}
-      >
-        {n}
       </div>
     </div>
   )
