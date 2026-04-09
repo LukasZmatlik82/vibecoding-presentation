@@ -12,7 +12,9 @@ type PresentationLandingProps = {
 export function PresentationLanding({ onEnter }: PresentationLandingProps) {
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-      <MeshGradient />
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+        <MeshGradient />
+      </div>
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center text-center sm:py-4">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}

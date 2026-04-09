@@ -4,6 +4,7 @@ import {
   RefreshCw,
   Sparkles,
 } from 'lucide-react'
+import { ParallaxBox, ParallaxLayer } from '../parallax/ParallaxRoot'
 import { cn } from '../../lib/cn'
 import { vibeCardClass, vibeIconChipClass, vibeIconTextClass } from '../../lib/vibeCard'
 
@@ -117,7 +118,11 @@ export function Slide05() {
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col pb-14',
       )}
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_55%_at_50%_12%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.08),transparent_58%)]" />
+      <ParallaxLayer
+        depth={-0.34}
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_55%_at_50%_12%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.08),transparent_58%)]"
+        aria-hidden
+      />
 
       <div className="relative z-[1] mb-5 max-w-4xl lg:mb-6">
         <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
@@ -131,7 +136,8 @@ export function Slide05() {
         </h2>
       </div>
 
-      <div
+      <ParallaxBox
+        depth={1.08}
         className={cn(
           vibeCardClass(0),
           'animate-fade-in-delay-2 relative z-[1] mb-8 p-4 sm:p-5',
@@ -145,7 +151,7 @@ export function Slide05() {
           workflow by the strengths of the models—using one for high-level
           architecture and another for ground-level execution.
         </p>
-      </div>
+      </ParallaxBox>
 
       <div className="relative z-[1] min-h-0 flex-1">
         <h3 className="animate-fade-in-delay-3 mb-6 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-lg font-semibold text-transparent sm:text-xl">
@@ -172,7 +178,11 @@ export function Slide05() {
                   >
                     {step.n}
                   </span>
-                  <article className={cn(vibeCardClass(i + 1), 'p-4 sm:p-5')}>
+                  <ParallaxBox
+                    as="article"
+                    depth={1.05 + i * 0.04}
+                    className={cn(vibeCardClass(i + 1), 'p-4 sm:p-5')}
+                  >
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
                       <div
                         className={cn(
@@ -224,7 +234,7 @@ export function Slide05() {
                         </div>
                       </div>
                     </div>
-                  </article>
+                  </ParallaxBox>
                 </li>
               )
             })}

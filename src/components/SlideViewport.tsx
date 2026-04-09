@@ -1,4 +1,5 @@
 import { SLIDES } from '../data/slides'
+import { ParallaxLayer } from './parallax/ParallaxRoot'
 import { Slide00 } from './slides/Slide00'
 import { Slide01 } from './slides/Slide01'
 import { Slide02 } from './slides/Slide02'
@@ -67,11 +68,14 @@ export function SlideViewport({ slideId, title, index }: SlideViewportProps) {
           {title}
         </h2>
       </header>
-      <div className="min-h-0 flex-1 rounded-2xl border border-white/10 bg-white/5 p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-md">
+      <ParallaxLayer
+        depth={1.05}
+        className="min-h-0 flex-1 rounded-2xl border border-white/10 bg-white/5 p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-md"
+      >
         <p className="text-slate-400">
           Content for this slide will be added in the next iteration.
         </p>
-      </div>
+      </ParallaxLayer>
     </div>
   )
 }

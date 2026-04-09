@@ -1,5 +1,6 @@
 import { Check, ClipboardCopy } from 'lucide-react'
 import { useCallback, useState } from 'react'
+import { ParallaxBox, ParallaxLayer } from '../parallax/ParallaxRoot'
 import { cn } from '../../lib/cn'
 import { vibeCardClass } from '../../lib/vibeCard'
 
@@ -44,7 +45,11 @@ export function SlidePrompts() {
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col',
       )}
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-30 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(217,70,239,0.08),transparent_55%)]" />
+      <ParallaxLayer
+        depth={-0.34}
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-30 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(217,70,239,0.08),transparent_55%)]"
+        aria-hidden
+      />
 
       <header className="relative z-[1] mb-6 shrink-0">
         <p className="animate-fade-in text-xs font-medium uppercase tracking-[0.28em] text-slate-400">
@@ -59,7 +64,8 @@ export function SlidePrompts() {
         </p>
       </header>
 
-      <div
+      <ParallaxBox
+        depth={1.12}
         className={cn(
           vibeCardClass(1),
           'relative z-[1] flex min-h-0 flex-1 flex-col',
@@ -104,7 +110,7 @@ export function SlidePrompts() {
             className="h-[min(58vh,520px)] w-full resize-none rounded-xl border border-white/10 bg-slate-950/50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-100 shadow-inner outline-none ring-white/10 focus-visible:ring-2 sm:text-sm"
           />
         </div>
-      </div>
+      </ParallaxBox>
 
     </div>
   )

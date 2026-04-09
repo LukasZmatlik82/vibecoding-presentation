@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { ParallaxBox } from '../parallax/ParallaxRoot'
+
 // ─── Game Types ────────────────────────────────────────────────────────────────
 
 type Player = { x: number; y: number; w: number; h: number; speed: number }
@@ -383,7 +385,10 @@ export function EscapeRoom() {
 
       <div className="flex flex-1 flex-col items-center gap-4">
         {/* Glassmorphic game card */}
-        <div className="relative w-full max-w-4xl rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_0_60px_-10px_rgba(34,211,238,0.18)] backdrop-blur-md">
+        <ParallaxBox
+          depth={1.1}
+          className="relative w-full max-w-4xl rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06),0_0_60px_-10px_rgba(34,211,238,0.18)] backdrop-blur-md"
+        >
           <canvas
             ref={canvasRef}
             width={CANVAS_W}
@@ -433,7 +438,7 @@ export function EscapeRoom() {
               </button>
             </div>
           )}
-        </div>
+        </ParallaxBox>
 
         {/* Controls hint */}
         <p className="text-sm text-slate-500">

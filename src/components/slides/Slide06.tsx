@@ -7,6 +7,7 @@ import {
   Zap,
 } from 'lucide-react'
 import { useCountUp } from '../../hooks/useCountUp'
+import { ParallaxBox, ParallaxLayer } from '../parallax/ParallaxRoot'
 import { cn } from '../../lib/cn'
 import { vibeCardClass, vibeCardInnerClass } from '../../lib/vibeCard'
 
@@ -61,7 +62,11 @@ export function Slide06() {
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col',
       )}
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_65%_at_40%_0%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.07),transparent_60%)]" />
+      <ParallaxLayer
+        depth={-0.34}
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_65%_at_40%_0%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.07),transparent_60%)]"
+        aria-hidden
+      />
 
       <div className="relative z-[1] mb-5 max-w-5xl lg:mb-6">
         <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.28em] text-slate-400">
@@ -80,7 +85,9 @@ export function Slide06() {
       </div>
 
       <div className="relative z-[1] grid min-h-0 flex-1 grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-5">
-        <article
+        <ParallaxBox
+          as="article"
+          depth={1.06}
           className={cn(
             vibeCardClass(0),
             'animate-fade-in-delay-1 flex flex-col justify-between p-5 sm:p-6 lg:col-span-4',
@@ -105,9 +112,11 @@ export function Slide06() {
             </span>{' '}
             use AI coding tools on a daily basis.
           </p>
-        </article>
+        </ParallaxBox>
 
-        <article
+        <ParallaxBox
+          as="article"
+          depth={1.1}
           className={cn(
             vibeCardClass(1),
             'animate-fade-in-delay-2 flex flex-col p-5 sm:p-6 lg:col-span-8',
@@ -130,9 +139,11 @@ export function Slide06() {
             hobbyists; it is{' '}
             <span className="font-medium text-slate-100">corporate infrastructure</span>.
           </p>
-        </article>
+        </ParallaxBox>
 
-        <article
+        <ParallaxBox
+          as="article"
+          depth={1.12}
           className={cn(
             vibeCardClass(2),
             'animate-fade-in-delay-2 p-5 sm:p-6 lg:col-span-12',
@@ -144,7 +155,10 @@ export function Slide06() {
           </div>
 
           <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
-            <div className={cn(vibeCardInnerClass(0), 'p-4')}>
+            <ParallaxLayer
+              depth={0.7}
+              className={cn(vibeCardInnerClass(0), 'p-4')}
+            >
               <p className="font-mono text-3xl font-bold tabular-nums text-slate-100 sm:text-4xl">
                 <CountRange a={41} b={46} delayMs={100} durationMs={1400} />
               </p>
@@ -155,8 +169,11 @@ export function Slide06() {
                 Per the 2026 GitHub Octoverse report, nearly half of all new code
                 written globally is now AI-generated.
               </p>
-            </div>
-            <div className={cn(vibeCardInnerClass(1), 'p-4')}>
+            </ParallaxLayer>
+            <ParallaxLayer
+              depth={0.76}
+              className={cn(vibeCardInnerClass(1), 'p-4')}
+            >
               <p className="text-sm font-semibold text-slate-100">
                 AI-first companies
               </p>
@@ -167,8 +184,11 @@ export function Slide06() {
                 At companies like Anthropic and Google, AI-generated share of
                 new code falls in this range.
               </p>
-            </div>
-            <div className={cn(vibeCardInnerClass(2), 'p-4')}>
+            </ParallaxLayer>
+            <ParallaxLayer
+              depth={0.82}
+              className={cn(vibeCardInnerClass(2), 'p-4')}
+            >
               <div className="flex items-center gap-2 text-slate-400">
                 <Rocket className="h-4 w-4 text-slate-400" aria-hidden />
                 <span className="text-xs font-semibold uppercase tracking-wide">
@@ -182,11 +202,13 @@ export function Slide06() {
                 Of Y Combinator&apos;s Winter 2026 cohort reported codebases over{' '}
                 <span className="font-medium text-slate-100">91% AI-generated</span>.
               </p>
-            </div>
+            </ParallaxLayer>
           </div>
-        </article>
+        </ParallaxBox>
 
-        <article
+        <ParallaxBox
+          as="article"
+          depth={1.08}
           className={cn(
             vibeCardClass(0),
             'animate-fade-in-delay-3 flex flex-col p-5 sm:p-6 lg:col-span-6',
@@ -208,9 +230,11 @@ export function Slide06() {
             <span className="font-medium text-slate-100">55% faster</span> than
             those building manually.
           </p>
-        </article>
+        </ParallaxBox>
 
-        <article
+        <ParallaxBox
+          as="article"
+          depth={1.14}
           className={cn(
             vibeCardClass(1),
             'animate-fade-in-delay-3 flex flex-col p-5 sm:p-6 lg:col-span-6',
@@ -234,7 +258,7 @@ export function Slide06() {
             for internal enterprise applications (like the ones SSCs rely on)
             when switching to AI-assisted development.
           </p>
-        </article>
+        </ParallaxBox>
       </div>
     </div>
   )

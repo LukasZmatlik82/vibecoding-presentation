@@ -1,5 +1,6 @@
 import { MessageSquare, Terminal } from 'lucide-react'
 import heroImage from '../../assets/slide01-hero.png'
+import { ParallaxBox, ParallaxLayer } from '../parallax/ParallaxRoot'
 import { cn } from '../../lib/cn'
 import { vibeCardClass, vibeImageFrame } from '../../lib/vibeCard'
 
@@ -10,7 +11,11 @@ export function Slide01() {
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col',
       )}
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-40 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_30%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.08),transparent_55%)]" />
+      <ParallaxLayer
+        depth={-0.34}
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-40 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_30%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.08),transparent_55%)]"
+        aria-hidden
+      />
 
       <div className="relative z-[1] mx-auto mb-8 max-w-4xl text-center">
         <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.3em] text-slate-400">
@@ -42,7 +47,9 @@ export function Slide01() {
           'lg:grid-cols-3 lg:grid-rows-1 lg:items-stretch lg:gap-6 lg:h-[min(52vh,520px)] lg:min-h-0',
         )}
       >
-        <article
+        <ParallaxBox
+          as="article"
+          depth={1.08}
           className={cn(
             vibeCardClass(0),
             'animate-fade-in-delay-1 flex min-h-[220px] w-full flex-col p-4 sm:p-5',
@@ -72,9 +79,12 @@ export function Slide01() {
           <p className="mt-3 text-xs text-slate-400">
             (Requires deep technical training).
           </p>
-        </article>
+        </ParallaxBox>
 
-        <div className="animate-fade-in-delay-2 flex min-h-[220px] w-full flex-col lg:min-h-0 lg:h-full">
+        <ParallaxLayer
+          depth={0.92}
+          className="animate-fade-in-delay-2 flex min-h-[220px] w-full flex-col lg:min-h-0 lg:h-full"
+        >
           <div className={vibeImageFrame}>
             <img
               src={heroImage}
@@ -84,9 +94,11 @@ export function Slide01() {
             <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-slate-950/50 via-transparent to-cyan-500/5" />
             <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/15" />
           </div>
-        </div>
+        </ParallaxLayer>
 
-        <article
+        <ParallaxBox
+          as="article"
+          depth={1.14}
           className={cn(
             vibeCardClass(2),
             'animate-fade-in-delay-3 flex min-h-[220px] w-full flex-col p-4 text-slate-100 sm:p-5',
@@ -112,10 +124,12 @@ export function Slide01() {
           <p className="mt-3 text-xs text-white/65">
             (Requires clear communication and process knowledge).
           </p>
-        </article>
+        </ParallaxBox>
       </div>
 
-      <footer
+      <ParallaxBox
+        as="footer"
+        depth={1.1}
         className={cn(
           vibeCardClass(1),
           'relative z-[1] mt-8 p-5 sm:p-6',
@@ -130,7 +144,7 @@ export function Slide01() {
           business logic, and the right boundaries. The AI figures out the
           &ldquo;how.&rdquo;
         </p>
-      </footer>
+      </ParallaxBox>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import {
   MessageSquareText,
   RefreshCw,
 } from 'lucide-react'
+import { ParallaxBox, ParallaxLayer } from '../parallax/ParallaxRoot'
 import { cn } from '../../lib/cn'
 import {
   vibeCardClass,
@@ -52,7 +53,8 @@ const steps = [
           Write your instructions exactly as you would for a brand-new junior
           employee. Provide context, boundaries, and specific rules.
         </p>
-        <div
+        <ParallaxLayer
+          depth={0.72}
           className={cn(
             vibeCardInnerClass(1),
             'p-3 text-xs leading-relaxed text-slate-400 sm:text-sm',
@@ -62,7 +64,7 @@ const steps = [
           &ldquo;Build an automation that takes the attached PDF, extracts the
           Invoice Number and Total Amount, and logs it into our tracking
           spreadsheet. Ignore any invoices under $50.&rdquo;
-        </div>
+        </ParallaxLayer>
       </>
     ),
   },
@@ -106,7 +108,11 @@ export function Slide03() {
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col pb-14',
       )}
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_55%_at_50%_15%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.09),transparent_58%)]" />
+      <ParallaxLayer
+        depth={-0.34}
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-35 [mask-image:radial-gradient(ellipse_85%_55%_at_50%_15%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.09),transparent_58%)]"
+        aria-hidden
+      />
 
       <div className="relative z-[1] mb-5 max-w-4xl lg:mb-6">
         <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.28em] text-slate-400">
@@ -117,7 +123,8 @@ export function Slide03() {
         </h2>
       </div>
 
-      <div
+      <ParallaxBox
+        depth={1.1}
         className={cn(
           vibeCardClass(0),
           'animate-fade-in-delay-2 relative z-[1] mb-8 p-4 sm:p-5',
@@ -144,7 +151,7 @@ export function Slide03() {
             </p>
           </div>
         </div>
-      </div>
+      </ParallaxBox>
 
       <div className="relative z-[1] min-h-0 flex-1">
         <h3 className="animate-fade-in-delay-3 mb-6 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-lg font-semibold text-transparent sm:text-xl">
@@ -177,7 +184,9 @@ export function Slide03() {
                   >
                     {step.n}
                   </span>
-                  <article
+                  <ParallaxBox
+                    as="article"
+                    depth={1.05 + i * 0.04}
                     className={cn(
                       vibeCardClass(i + 1),
                       'p-4 sm:p-5',
@@ -204,7 +213,7 @@ export function Slide03() {
                         <div className="mt-3">{step.body}</div>
                       </div>
                     </div>
-                  </article>
+                  </ParallaxBox>
                 </li>
               )
             })}

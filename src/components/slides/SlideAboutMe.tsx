@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react'
+import { ParallaxBox } from '../parallax/ParallaxRoot'
 import { cn } from '../../lib/cn'
 import { vibeCardClass } from '../../lib/vibeCard'
 
@@ -17,7 +18,9 @@ export function SlideAboutMe() {
     <div className="animate-slide-fade-in relative flex min-h-0 flex-1 flex-col justify-center">
       <div className="mx-auto grid w-full max-w-5xl gap-10 lg:grid-cols-[minmax(0,220px)_1fr] lg:items-start lg:gap-14">
         <div className="flex justify-center lg:justify-start">
-          <figure
+          <ParallaxBox
+            as="figure"
+            depth={1.08}
             className={cn(
               vibeCardClass(0),
               'w-full max-w-[200px] shrink-0 overflow-hidden p-1',
@@ -28,10 +31,11 @@ export function SlideAboutMe() {
               alt="Lukáš Zmátlík"
               className="aspect-square w-full rounded-lg object-cover"
             />
-          </figure>
+          </ParallaxBox>
         </div>
 
-        <div
+        <ParallaxBox
+          depth={1.14}
           className={cn(
             vibeCardClass(1),
             'min-h-0 flex-1 space-y-5 border-l border-white/10 p-6 sm:p-8',
@@ -114,7 +118,7 @@ export function SlideAboutMe() {
               <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-70" aria-hidden />
             </a>
           </p>
-        </div>
+        </ParallaxBox>
       </div>
     </div>
   )

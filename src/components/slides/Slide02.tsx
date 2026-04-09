@@ -1,4 +1,5 @@
 import { Bot, Quote, Sparkles, Terminal } from 'lucide-react'
+import { ParallaxBox, ParallaxLayer } from '../parallax/ParallaxRoot'
 import { cn } from '../../lib/cn'
 import { vibeCardClass, vibeIconChipClass, vibeIconTextClass } from '../../lib/vibeCard'
 
@@ -9,7 +10,11 @@ export function Slide02() {
         'animate-slide-fade-in relative flex min-h-0 flex-1 flex-col',
       )}
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-40 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_30%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(217,70,239,0.06),transparent_55%)]" />
+      <ParallaxLayer
+        depth={-0.34}
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-40 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_30%,black,transparent)] bg-[radial-gradient(ellipse_at_top,rgba(217,70,239,0.06),transparent_55%)]"
+        aria-hidden
+      />
 
       <div className="relative z-[1] mb-6 max-w-4xl lg:mb-8">
         <p className="animate-fade-in-delay-1 text-xs font-medium uppercase tracking-[0.28em] text-slate-400">
@@ -28,7 +33,9 @@ export function Slide02() {
 
       <div className="relative z-[1] grid min-h-0 flex-1 grid-cols-1 gap-6 lg:grid-cols-12 lg:items-start lg:gap-8">
         <div className="flex flex-col gap-5 lg:col-span-5">
-          <article
+          <ParallaxBox
+            as="article"
+            depth={1.06}
             className={cn(
               vibeCardClass(0),
               'animate-fade-in-delay-1 p-5 sm:p-6',
@@ -63,9 +70,11 @@ export function Slide02() {
                 </p>
               </div>
             </div>
-          </article>
+          </ParallaxBox>
 
-          <article
+          <ParallaxBox
+            as="article"
+            depth={1.12}
             className={cn(
               vibeCardClass(1),
               'animate-fade-in-delay-2 p-5 sm:p-6',
@@ -104,11 +113,12 @@ export function Slide02() {
                 </p>
               </div>
             </div>
-          </article>
+          </ParallaxBox>
         </div>
 
         <div className="flex min-h-0 flex-col gap-5 lg:col-span-7">
-          <div
+          <ParallaxBox
+            depth={1.08}
             className={cn(
               vibeCardClass(2),
               'animate-fade-in-delay-1 p-5 sm:p-6',
@@ -128,9 +138,11 @@ export function Slide02() {
                 </p>
               </div>
             </div>
-          </div>
+          </ParallaxBox>
 
-          <blockquote
+          <ParallaxBox
+            as="blockquote"
+            depth={1.14}
             className={cn(
               vibeCardClass(0),
               'animate-fade-in-delay-2 relative shrink-0 p-5 sm:p-6',
@@ -159,9 +171,10 @@ export function Slide02() {
                 </footer>
               </div>
             </div>
-          </blockquote>
+          </ParallaxBox>
 
-          <div
+          <ParallaxBox
+            depth={1.18}
             className={cn(
               vibeCardClass(1),
               'animate-fade-in-delay-3 p-5 sm:p-6',
@@ -175,7 +188,7 @@ export function Slide02() {
               understand the business process steps and can clearly articulate
               them, you can now build the automation yourself.
             </p>
-          </div>
+          </ParallaxBox>
         </div>
       </div>
     </div>

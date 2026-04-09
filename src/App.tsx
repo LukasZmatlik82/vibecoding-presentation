@@ -11,14 +11,14 @@ function App() {
 
   if (!hasEntered) {
     return (
-      <div className="min-h-full">
+      <div className="min-h-screen">
         <PresentationLanding onEnter={() => setHasEntered(true)} />
       </div>
     )
   }
 
   return (
-    <div className="min-h-full bg-slate-950 bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(34,211,238,0.12),transparent),radial-gradient(ellipse_80%_50%_at_100%_50%,rgba(217,70,239,0.08),transparent)] text-slate-200">
+    <div className="min-h-screen min-h-full bg-slate-950 bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(34,211,238,0.12),transparent),radial-gradient(ellipse_80%_50%_at_100%_50%,rgba(217,70,239,0.08),transparent)] text-slate-200">
       <Sidebar
         slides={SLIDES}
         activeIndex={activeSlide}
